@@ -4,14 +4,15 @@ import fs from "fs";
 import qr from "qr-image";
 import express from "express";
 import path from "path";
-var qr_data="https://google.com";
+var qr_data="https://github.com/Nikhil6489";
 const port=3000;
 const app=express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, "public")));
-var qr_svg;
-qr_svg.pipe(fs.createWriteStream('public/qr_img.png'));
+var qr_svg = qr.image(qr_data);
+qr_svg.pipe(fs.createWriteStream(__dirname+'public/qr_img.png'));
+qr_svg.pipe(fs.createWriteStream(__dirname+'public/qr_img.png'));
 
 
 app.get("/",(req,res)=>{
@@ -22,7 +23,7 @@ app.post("/generate",(req,res)=>{
   qr_data=req.body["URL"];
   if(qr_data){
   qr_svg = qr.image(qr_data);
-  qr_svg.pipe(fs.createWriteStream('public/qr_img.png'));
+  qr_svg.pipe(fs.createWriteStream(__dirname+'public/qr_img.png'));
   res.render("index.ejs",{data:"QR Generated "+qr_data});
   }
   else{
