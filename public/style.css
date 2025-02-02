@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.title {
+    padding-top: 50px;
+    text-align: center;
+    background-color: grey;
+}
+
+.continer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Full viewport height */
+    background-color: grey;
+    gap: 20px; /* Adds spacing between input section and image */
+}
+@media (min-width: 768px) {
+    .continer {
+        flex-direction: row; /* Switch back to row layout on larger screens */
+    }
+}
+.input {
+    display: flex;
+    flex-direction: row; /* Stack elements vertically */
+    align-items: center; /* Center content horizontally */
+    gap: 10px; /* Adds spacing between label, input, and button */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.input label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.input input[type="text"] {
+    padding: 8px;
+    width: 250px; /* Fixed width for the input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.input input[type="submit"] {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input input[type="submit"]:hover {
+    background-color: rgb(78, 78, 78);
+}
+
+/* Added background for the image div */
+.image {
+    display: flex;
+    flex-direction: column;  /* Stack image and text vertically */
+    justify-content: center;
+    align-items: center;
+    background: white;  /* White background for the div */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.image img {
+    width: 150px;  /* Adjust image size */
+    height: 150px;
+    margin-bottom: 10px;  /* Adds spacing between image and text */
+}
+
+.image p {
+    font-size: 16px;  /* Adjust font size */
+    font-weight: bold;  /* Make the text bold */
+    color: #333;  /* Text color */
+    margin-top: 0;  /* Ensure no extra space above the text */
+}
